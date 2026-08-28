@@ -4,12 +4,14 @@ import embedSummary from "./embedSummary.js"
 import fs from "fs/promises"
 
 export default async function indexRepo(githubURL, githubToken) {
+
   //Step 1: load github repo using langchain
   console.log("Loading/fetching github repo...");
   const docsArray = await loadGithubRepo(githubURL, githubToken);
   console.log("Github repo fetched...", docsArray.length, "Files found");
 
-
+  //  docsArray [{pageconent, filename}, {}, {}]
+  // result [{summary, embedding, sourcecode, filename}, {}, {}]
   let result = []
   
   for(let doc of docsArray){
