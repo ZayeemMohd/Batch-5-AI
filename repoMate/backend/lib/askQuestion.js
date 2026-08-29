@@ -47,7 +47,7 @@ export default async function askQuestion(userQuery) {
   });
 
   //   console.log(response.text)
-  return { AI_Summary: response.text };
+  return { AI_Summary: response.text, relaventFiles };
 }
 
 // askQuestion("where pdf variable is called?")
